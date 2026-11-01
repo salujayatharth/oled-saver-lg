@@ -1,0 +1,8 @@
+# Build output
+build_lg/
+
+# Video files (large binaries — serve your own via sources.json)
+*.mp4
+
+# macOS
+.DS_Store

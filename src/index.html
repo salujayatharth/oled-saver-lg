@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>OLED Saver</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HTML5 video — hardware-decoded by LG's Starfish pipeline -->
+  <video id="av" muted playsinline></video>
+  <canvas id="c"></canvas>
+  <div id="dim"></div>
+  <div id="photo-frame"></div>
+  <div id="osd" class="hidden">
+    <div id="osd-name"></div>
+    <div id="osd-help">◀ ▶ navigate · OK toggle photos · hold OK settings · BACK exit</div>
+  </div>
+  <div id="settings" class="hidden">
+    <div id="settings-box">
+      <div class="settings-title">Settings</div>
+      <div id="settings-list"></div>
+      <div class="settings-footer">▲ ▼ navigate · ◀ ▶ change · BACK close</div>
+    </div>
+  </div>
+  <script src="js/modes.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  cursor: none;
+}
+/* In video mode, hide the canvas */
+body.video canvas { display: none; }
+
+/* HTML5 video element — hidden until video mode is active */
+#av {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+  background: #000;
+  z-index: 0;
+}
+body.video #av { display: block; }
+
+canvas {
+  position: fixed;
+  left: 0; top: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Photo mat/frame overlay — sits above the video in the web layer */
+#photo-frame {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  box-sizing: border-box;
+  display: none;
+}
+body.video.frame-thin  #photo-frame {
+  display: block;
+  border: 48px solid rgba(8, 6, 4, 0.96);
+  box-shadow: inset 0 0 0 2px rgba(160, 140, 110, 0.4);
+}
+body.video.frame-classic #photo-frame {
+  display: block;
+  border: 96px solid rgba(8, 6, 4, 0.97);
+  box-shadow: inset 0 0 0 3px rgba(160, 140, 110, 0.35),
+              inset 0 0 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Brightness + transitions: black overlay over everything */
+#dim {
+  position: fixed;
+  inset: 0;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+#osd {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  padding: 20px 36px;
+  border-radius: 16px;
+  background: rgba(20, 20, 24, 0.85);
+  color: #ddd;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  transition: opacity 400ms ease;
+  white-space: nowrap;
+  z-index: 20;
+}
+#osd.hidden { opacity: 0; }
+#osd-name { font-size: 40px; font-weight: 600; color: #fff; }
+#osd-help { font-size: 22px; margin-top: 8px; color: #999; }
+
+/* Settings overlay */
+#settings {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 200;
+}
+#settings.hidden { display: none; }
+#settings-box {
+  background: rgba(14, 14, 18, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  padding: 52px 80px 44px;
+  min-width: 660px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+}
+.settings-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  gap: 60px;
+}
+.settings-item:last-child { border-bottom: none; }
+.s-label { font-size: 32px; font-weight: 400; color: #666; }
+.s-val   { font-size: 32px; font-weight: 600; color: #444; white-space: nowrap; }
+.settings-item.active .s-label { color: #fff; }
+.settings-item.active .s-val   { color: #58d; }
+.settings-footer {
+  font-size: 22px;
+  color: #444;
+  margin-top: 36px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}

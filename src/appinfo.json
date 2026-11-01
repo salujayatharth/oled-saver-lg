@@ -1,0 +1,15 @@
+{
+  "id": "com.oledscreensaver.app",
+  "title": "OLED Saver",
+  "type": "web",
+  "main": "index.html",
+  "icon": "icon.png",
+  "largeIcon": "icon.png",
+  "version": "1.0.0",
+  "vendor": "OLED Saver",
+  "appDescription": "4K painting slideshow and generative screensaver for OLED TVs",
+  "resolution": "1920x1080",
+  "disableBackHistoryAPI": true,
+  "screenSaverProperties": { "preferredType": 2 },
+  "uiRevision": 3
+}
